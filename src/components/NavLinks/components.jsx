@@ -16,10 +16,14 @@ const InnerContainer = styled.div`
 
 const ImgWrapper = styled.div`
   margin: 5rem 0;
+  display: flex;
+  align-items: center;
 `;
 
 const MenuIconWrapper = styled.div`
   margin: 5rem 0;
+  display: flex;
+  align-items: center;
 
   @media (min-width: 850px) {
     display: none;
@@ -35,6 +39,8 @@ const NavBar = styled.ul`
 `;
 
 const Link = styled.li`
+  display: flex;
+  align-items: center;
   margin: 5rem;
   font-size: 1.8rem;
   text-transform: capitalize;
