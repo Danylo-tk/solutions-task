@@ -12,6 +12,7 @@ import {
 import logo from "../../assets/logo-white.png";
 import menuIcon from "../../assets/MenuIcon.png";
 import crossIcon from "../../assets/CrossIcon.png";
+import { PrimaryButton } from "../../styles/components/PrimaryButton/components";
 
 const NavLinks = () => {
   const [extendedMenu, setExtendedMenu] = useState(false);
@@ -26,6 +27,11 @@ const NavLinks = () => {
           <Link>home</Link>
           <Link>about us</Link>
           <Link>what we do</Link>
+          <Link>
+            <PrimaryButton variant="contained" btnheight={50} btnwidth={118}>
+              contact us
+            </PrimaryButton>
+          </Link>
         </NavBar>
         <MenuIconWrapper
           onClick={() => {
