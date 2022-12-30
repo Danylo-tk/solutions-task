@@ -4,4 +4,4 @@ which I took from Lemberg Solutiond website.
 
 ## What was implemented?
 - mobile and desktop version
--responsive navbar
+  responsive navbar
