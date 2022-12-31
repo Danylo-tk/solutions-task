@@ -20,8 +20,24 @@ const MainSection = styled.div`
   }
 `;
 
+const BtnWrapper = styled.div`
+  margin: 3rem 5rem;
+`;
+
+const ArrowWrapper = styled.div`
+  margin: 3rem 5rem;
+`;
+
 const TextPart = styled.div``;
 
 const ImgPart = styled.div``;
 
-export { Container, ContentWrapper, MainSection, TextPart, ImgPart };
+export {
+  Container,
+  ContentWrapper,
+  MainSection,
+  TextPart,
+  ImgPart,
+  BtnWrapper,
+  ArrowWrapper,
+};
