@@ -1,12 +1,7 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  height: ${(props) => (props.extendedMenu ? "100vh" : "auto")};
-  margin: 0 5rem;
-
-  @media (max-width: 850px) {
-    margin: 0 3rem;
-  }
+  height: ${(props) => (props.extendedMenu ? "100vh" : "15vh")};
 `;
 
 const InnerContainer = styled.div`
