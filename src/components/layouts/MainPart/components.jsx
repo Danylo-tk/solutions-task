@@ -1,43 +1,66 @@
 import styled from "styled-components";
 
-const Container = styled.section`
-  height: 100vh;
+const MainPartContainer = styled.section`
   display: flex;
   justify-content: center;
+  overflow: hidden;
   background-color: #ffbc00;
 `;
 
-const ContentWrapper = styled.div`
-  max-width: 120rem;
+const MainPartWrapper = styled.div`
   width: 90%;
 `;
 
-const MainSection = styled.div`
+const ContentPart = styled.div`
+  height: 85vh;
   display: flex;
-  flex-direction: row;
+
   @media (max-width: 850px) {
     flex-direction: column;
   }
 `;
 
-const BtnWrapper = styled.div`
-  margin: 3rem 5rem;
+const DescriptionPart = styled.div`
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  row-gap: 6rem;
+
+  @media (max-width: 850px) {
+    height: 50%;
+    width: 100%;
+    row-gap: 2rem;
+  }
 `;
 
-const ArrowWrapper = styled.div`
-  margin: 3rem 5rem;
+const ImgPart = styled.div`
+  width: 50%;
+
+  @media (max-width: 850px) {
+    height: 50%;
+    width: 100%;
+  }
 `;
 
-const TextPart = styled.div``;
+const HelmetImg = styled.img`
+  @media (max-width: 850px) {
+    height: 100%;
+  }
+`;
 
-const ImgPart = styled.div``;
+const ArrowImgWrapper = styled.div`
+  @media (max-width: 850px) {
+    display: none;
+  }
+`;
 
 export {
-  Container,
-  ContentWrapper,
-  MainSection,
-  TextPart,
+  MainPartContainer,
+  MainPartWrapper,
+  ContentPart,
+  DescriptionPart,
   ImgPart,
-  BtnWrapper,
-  ArrowWrapper,
+  ArrowImgWrapper,
+  HelmetImg,
 };

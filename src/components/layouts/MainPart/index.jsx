@@ -1,35 +1,43 @@
 import {
-  ArrowWrapper,
-  BtnWrapper,
-  Container,
-  ContentWrapper,
+  ArrowImgWrapper,
+  ContentPart,
+  DescriptionPart,
+  HelmetImg,
   ImgPart,
-  MainSection,
-  TextPart,
+  MainPartContainer,
+  MainPartWrapper,
 } from "./components";
 import { PrimaryButton } from "../../../styles/components/PrimaryButton/components";
 import arrowDown from "../../../assets/ArrowDown.png";
-import Description from "../../Description";
-import Header from "../../Header";
+import helmet from "../../../assets/Helmet.png";
 import NavLinks from "../../NavLinks";
+import Header from "../../Header";
+import Description from "../../Description";
 
 const MainPart = () => {
   return (
-    <Container>
-      <ContentWrapper>
+    <MainPartContainer>
+      <MainPartWrapper>
         <NavLinks />
-        <Header />
-        <Description />
-        <BtnWrapper>
-          <PrimaryButton variant="contained" btnheight={65} btnwidth={176}>
-            learn more
-          </PrimaryButton>
-        </BtnWrapper>
-        <ArrowWrapper>
-          <img src={arrowDown} alt="arrow down" />
-        </ArrowWrapper>
-      </ContentWrapper>
-    </Container>
+        <ContentPart>
+          <DescriptionPart>
+            <Header />
+            <Description />
+            <div>
+              <PrimaryButton variant="contained" btnheight={65} btnwidth={176}>
+                learn more
+              </PrimaryButton>
+            </div>
+            <ArrowImgWrapper>
+              <img src={arrowDown} alt="arrow down" />
+            </ArrowImgWrapper>
+          </DescriptionPart>
+          <ImgPart>
+            <HelmetImg src={helmet} alt="helmet" />
+          </ImgPart>
+        </ContentPart>
+      </MainPartWrapper>
+    </MainPartContainer>
   );
 };
 
