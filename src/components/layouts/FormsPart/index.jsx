@@ -11,13 +11,17 @@ import arrowUp from "../../../assets/ArrowUp.png";
 import Forms from "../../Forms";
 
 const FormsPart = () => {
+  const handleMove = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <>
       <Wrapper>
         <FormsHeaderWrapper>
           <SecondaryHeader />
           <ImgWrapper>
-            <ArrowImg src={arrowUp} alt="arrow up" />
+            <ArrowImg src={arrowUp} alt="arrow up" onClick={handleMove} />
           </ImgWrapper>
         </FormsHeaderWrapper>
       </Wrapper>
