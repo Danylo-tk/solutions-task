@@ -34,9 +34,10 @@ const NavBar = styled.ul`
 `;
 
 const Link = styled.li`
+  margin: 4.5rem;
   display: flex;
   align-items: center;
-  margin: 5rem;
+  cursor: pointer;
   font-size: 1.8rem;
   text-transform: capitalize;
 `;
