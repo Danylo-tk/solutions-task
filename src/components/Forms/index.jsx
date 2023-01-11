@@ -2,7 +2,9 @@ import { FormsWrapper } from "./components";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import { SubmitButton } from "../../styles/components/SubmitButton/components";
-import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 const theme = createTheme({
   typography: {
@@ -12,42 +14,69 @@ const theme = createTheme({
 });
 
 const Forms = () => {
-  const [values, setValues] = useState({
-    name: "",
-    company: "",
-    phone: "",
-    email: "",
-    message: "",
+  const contactSchema = yup.object().shape({
+    fullName: yup
+      .string("Your name should only be a text value!")
+      .required("This field is required!"),
+    companyName: yup
+      .string("Company name should only be a text value!")
+      .required("This field is required!"),
+    phone: yup
+      .string()
+      .matches(
+        /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
+        "Phone nuber is not valid!"
+      )
+      .required("This field is required!"),
+
+    email: yup
+      .string()
+      .email("You email is not looking good!")
+      .required("This field is required!"),
+    message: yup.string(),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(contactSchema),
   });
 
   const inputs = [
     {
       id: "1",
-      name: "name",
+      name: "fullName",
+      type: "text",
       label: "Full Name",
       variant: "standard",
     },
     {
       id: "2",
-      name: "company",
+      name: "companyName",
+      type: "text",
       label: "Company Name",
       variant: "standard",
     },
     {
       id: "3",
       name: "phone",
+      type: "number",
       label: "Phone Number",
       variant: "standard",
     },
     {
       id: "4",
       name: "email",
+      type: "text",
       label: "E-mail",
       variant: "standard",
     },
     {
       id: "5",
       name: "message",
+      type: "text",
       label: "Write Us Messages",
       variant: "standard",
       multiline: true,
@@ -55,24 +84,20 @@ const Forms = () => {
     },
   ];
 
-  const handleSubmit = (e) => {
-    console.log(values);
-    e.preventDefault();
-  };
-
-  const onChange = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
+  const onSubmit = (data) => {
+    console.log(data);
   };
 
   return (
     <ThemeProvider theme={theme}>
-      <FormsWrapper action="" onSubmit={handleSubmit}>
+      <FormsWrapper onSubmit={handleSubmit(onSubmit)}>
         {inputs.map((input) => (
           <TextField
             key={input.id}
             {...input}
-            value={values[input.name]}
-            onChange={onChange}
+            error={Boolean(errors[input.name]?.message)}
+            helperText={errors[input.name]?.message}
+            {...register(input.name)}
           />
         ))}
         <SubmitButton
